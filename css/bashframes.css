@@ -1,0 +1,224 @@
+/*
+ * bashframes theme for LittleLink
+ * Layered on top of LittleLink's reset.css + style.css (MIT, Seth Cottle).
+ * Brand rules: black + white base, ONE accent (Acid Lime), sharp edges,
+ * restrained Y2K HUD details. Fonts self-hosted (SIL OFL 1.1), no external requests.
+ */
+
+@font-face{
+  font-family:'Space Grotesk';
+  font-style:normal;
+  font-weight:300 700;
+  font-display:swap;
+  src:url('../fonts/SpaceGrotesk-Variable.woff2') format('woff2');
+}
+@font-face{
+  font-family:'JetBrains Mono';
+  font-style:normal;
+  font-weight:100 800;
+  font-display:swap;
+  src:url('../fonts/JetBrainsMono-Variable.woff2') format('woff2');
+}
+
+:root{
+  --bf-black:#0A0A0A;
+  --bf-carbon:#111111;
+  --bf-graphite:#262626;
+  --bf-steel:#6A6A6A;
+  --bf-fog:#BDBDBD;
+  --bf-white:#FFFFFF;
+  /* the one accent for this piece */
+  --bf-accent:#C6FF00; /* Acid Lime: logo/text on it = black */
+  --bf-font-sans:'Space Grotesk',system-ui,sans-serif;
+  --bf-font-mono:'JetBrains Mono',ui-monospace,monospace;
+  --rule:1px solid var(--bf-graphite);
+  color-scheme:dark;
+}
+
+*,*::before,*::after{border-radius:0 !important}
+
+html,body{background:var(--bf-black)}
+body,
+:root.theme-dark body{
+  background-color:var(--bf-black);
+  /* dot grid, like the kit's X profile + brand sheet */
+  background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1.2px);
+  background-size:24px 24px;
+  background-position:12px 12px;
+  color:var(--bf-white);
+  font-family:var(--bf-font-sans);
+  font-size:1rem;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+}
+
+::selection{background:var(--bf-accent);color:var(--bf-black)}
+:root.theme-dark :focus-visible,:focus-visible{outline:2px solid var(--bf-accent);outline-offset:3px}
+
+.mono{font-family:var(--bf-font-mono);font-weight:500;font-size:.6875rem;letter-spacing:.14em;text-transform:uppercase}
+
+/* ---------- HUD bar ---------- */
+.hud{
+  position:relative;z-index:2;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  padding:.875rem 1.5rem;
+  border-bottom:1px solid rgba(255,255,255,.55);
+  color:var(--bf-fog);
+  background:var(--bf-black);
+}
+.hud::after{ /* second thin rule, like the brand sheet header */
+  content:"";position:absolute;left:0;right:0;bottom:-5px;height:1px;background:var(--bf-graphite);
+}
+.hud span{white-space:nowrap}
+.hud .hud-mid{color:var(--bf-steel)}
+.hud b{color:var(--bf-white);font-weight:500}
+
+/* ---------- Page frame ---------- */
+.container{
+  max-width:30rem;width:100%;
+  padding:3.5rem 1.25rem 0;
+  text-align:left;
+}
+@media (min-width:25rem){.container{width:100%}}
+@media (min-width:34.375rem){.container{width:100%}}
+
+.frame{position:relative;padding:2rem 1.75rem 1.75rem;border:var(--rule);background:rgba(10,10,10,.86)}
+/* HUD corner ticks */
+.frame>.tick{position:absolute;width:14px;height:14px;border:0 solid var(--bf-white);pointer-events:none}
+.frame>.tick.tl{top:-1px;left:-1px;border-top-width:1px;border-left-width:1px}
+.frame>.tick.tr{top:-1px;right:-1px;border-top-width:1px;border-right-width:1px}
+.frame>.tick.bl{bottom:-1px;left:-1px;border-bottom-width:1px;border-left-width:1px}
+.frame>.tick.br{bottom:-1px;right:-1px;border-bottom-width:1px;border-right-width:1px}
+.frame-label{position:absolute;top:-.55rem;left:1.25rem;padding:0 .5rem;background:var(--bf-black);color:var(--bf-steel)}
+.frame-label-r{left:auto;right:1.25rem}
+
+/* ---------- Profile ---------- */
+.profile{display:flex;align-items:center;gap:1.25rem;margin-bottom:1.5rem}
+.avatar-box{
+  position:relative;flex-shrink:0;
+  width:5.5rem;height:5.5rem;
+  display:grid;place-items:center;
+  border:1px solid rgba(255,255,255,.35);
+  background:var(--bf-black);
+}
+.avatar.avatar--none{width:2.75rem;height:auto;margin:0;object-fit:contain}
+
+.profile-text{min-width:0}
+.profile-text .handle{color:var(--bf-steel);display:inline-block;margin-bottom:.35rem;text-decoration:none;border-bottom:1px solid transparent}
+.profile-text a.handle:hover,:root.theme-dark .profile-text a.handle:not(.button):hover{color:var(--bf-white);border-bottom-color:var(--bf-white)}
+:root.theme-dark .profile-text a.handle:not(.button){color:var(--bf-steel)}
+
+/* ---------- Featured hero ---------- */
+.hero{display:block;position:relative;margin:0 0 .25rem;border:1px solid rgba(255,255,255,.22);background:var(--bf-carbon);text-decoration:none;transition:border-color .12s ease}
+.hero-bar{display:flex;justify-content:space-between;gap:1rem;padding:.5rem .75rem;border-bottom:1px solid rgba(255,255,255,.22);color:var(--bf-fog);font-size:.625rem}
+.hero-bar span:last-child{color:var(--bf-steel)}
+.hero img{display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;filter:saturate(.85)}
+.hero::after{ /* HUD corner tick, bottom-right */
+  content:"";position:absolute;right:-1px;bottom:-1px;width:12px;height:12px;border-right:1px solid var(--bf-white);border-bottom:1px solid var(--bf-white);pointer-events:none}
+a.hero:hover{border-color:var(--bf-white)}
+a.hero:hover .hero-bar span:last-child{color:var(--bf-white)}
+a.hero:hover img{filter:none}
+h1{
+  font-family:var(--bf-font-sans);
+  font-size:2.5rem;font-weight:700;letter-spacing:-.035em;line-height:1;
+  margin:0 0 .5rem;hyphens:none;text-transform:lowercase;
+}
+.container p.tagline{margin:0;font-size:1.0625rem;line-height:1.35;color:var(--bf-fog);font-weight:400}
+
+/* ---------- Groups ---------- */
+section.group{margin:1.375rem 0 0;text-align:left}
+.group-head{display:flex;align-items:center;gap:.75rem;margin-bottom:.625rem;color:var(--bf-steel)}
+.group-head::after{content:"";flex:1;height:1px;background:var(--bf-graphite)}
+
+.button-stack{display:flex;flex-direction:column;gap:.5rem}
+
+/* ---------- Buttons (override LittleLink .button) ---------- */
+.button,
+:root.theme-dark .button{
+  --button-text:var(--bf-white);
+  --button-background:transparent;
+  --button-border:1px solid rgba(255,255,255,.22);
+  width:100%;min-height:3.5rem;margin:0;
+  display:grid;grid-template-columns:2rem 1.25rem 1fr auto;align-items:center;column-gap:.75rem;
+  padding:.75rem 1rem;
+  text-align:left;
+  font-family:var(--bf-font-sans);font-size:1.0625rem;font-weight:500;letter-spacing:-.01em;
+  color:var(--button-text);background:var(--button-background);border:var(--button-border);
+  transition:background-color .12s ease,border-color .12s ease,color .12s ease;
+  position:relative;
+}
+.button .idx{color:var(--bf-steel);font-size:.6875rem}
+.button .icon{
+  width:1.125rem;height:1.125rem;margin:0;justify-self:center;
+  background:currentColor;
+  -webkit-mask:var(--icon) center/contain no-repeat;mask:var(--icon) center/contain no-repeat;
+}
+.button .meta{color:var(--bf-steel);font-size:.625rem;letter-spacing:.1em;white-space:nowrap}
+.button .arrow{display:inline-block;margin-left:.35rem;color:var(--bf-fog);transition:transform .12s ease}
+
+a.button:hover{border-color:var(--bf-white);background:var(--bf-carbon);color:var(--bf-white)}
+a.button:hover .arrow{transform:translate(2px,-2px)}
+a.button:hover::before{ /* accent edge on hover */
+  content:"";position:absolute;left:-1px;top:-1px;bottom:-1px;width:3px;background:var(--bf-accent);
+}
+
+/* primary CTA: the single accent block on the page */
+:root .button.button-primary{
+  --button-text:var(--bf-black);
+  --button-background:var(--bf-accent);
+  --button-border:1px solid var(--bf-accent);
+  min-height:4rem;font-weight:700;font-size:1.125rem;
+}
+.button.button-primary .idx,.button.button-primary .meta,.button.button-primary .arrow{color:rgba(10,10,10,.7)}
+a.button.button-primary:hover{background:var(--bf-white);border-color:var(--bf-white);color:var(--bf-black)}
+a.button.button-primary:hover::before{display:none}
+
+/* not-a-link item */
+:root .button.button-soon{
+  --button-text:var(--bf-steel);
+  --button-border:1px dashed rgba(255,255,255,.22);
+  cursor:default;
+}
+.button.button-soon .tag{
+  border:1px solid var(--bf-steel);color:var(--bf-fog);padding:.2rem .4rem;font-size:.5625rem;
+}
+
+.icon-home{--icon:url('../images/icons/generic-homepage.svg')}
+/* Ko-fi: LittleLink's icon recoloured to mono (white cup, cut-outs in page black) and used as an <img> */
+.button img.icon{background:none;-webkit-mask:none;mask:none}
+.icon-youtube{--icon:url('../images/icons/youtube-alt.svg')}
+.icon-instagram{--icon:url('../images/icons/instagram.svg')}
+.icon-tiktok{--icon:url('../images/icons/tiktok-mono.svg')}
+.icon-x{--icon:url('../images/icons/x.svg')}
+.icon-github{--icon:url('../images/icons/github.svg')}
+.icon-download{--icon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11 2h2v12.2l4.6-4.6 1.4 1.4-7 7-7-7 1.4-1.4 4.6 4.6zM3 20h18v2H3z'/%3E%3C/svg%3E")}
+.icon-soon{--icon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 3h7v2H5v5H3zm11 0h7v7h-2V5h-5zM3 14h2v5h5v2H3zm16 0h2v7h-7v-2h5z'/%3E%3Ccircle cx='12' cy='12' r='2'/%3E%3C/svg%3E")}
+
+/* ---------- Footer ---------- */
+footer{margin:0;padding:2rem 0 3rem;color:var(--bf-steel);font-size:.75rem}
+.foot-row{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.foot-row+.foot-row{margin-top:.875rem}
+.wordmark{height:.75rem;width:auto;opacity:.9}
+.barcode{height:1.5rem;width:auto;opacity:.55}
+footer a,:root.theme-dark footer a:not(.button){color:var(--bf-fog);text-decoration:none;border-bottom:1px solid var(--bf-graphite)}
+footer a:hover,:root.theme-dark footer a:not(.button):hover{color:var(--bf-white);border-bottom-color:var(--bf-white)}
+
+/* ---------- Small screens ---------- */
+@media (max-width:34.375rem){
+  .hud{padding:.75rem 1rem}
+  .hud .hud-mid{display:none}
+  .container{padding:2rem 1rem 0}
+  .frame{padding:1.75rem 1rem 1.25rem}
+  .profile{gap:1rem}
+  .avatar-box{width:4.5rem;height:4.5rem}
+  .avatar.avatar--none{width:2.25rem}
+  h1{font-size:2.125rem}
+  .container p.tagline{font-size:1rem}
+  .foot-row.mono{flex-direction:column;align-items:flex-start;gap:.375rem}
+  .button,:root.theme-dark .button{grid-template-columns:1.5rem 1.125rem 1fr auto;column-gap:.625rem;padding:.75rem .875rem;font-size:1rem}
+}
+
+@media (max-width:22.5rem){.button .meta .hide-sm{display:none}}
+
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
