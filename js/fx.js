@@ -14,18 +14,6 @@ if(!(ss&&ss.fxBoot)||/fxboot/.test(location.hash)){
  R.classList.add('fx-boot');
  setTimeout(function(){R.classList.remove('fx-boot');els.forEach(function(e){e.classList.remove('fx-up')})},1150);
 }
-/* 2 parallax */
-var tx=0,ty=0,cx=0,cy=0,raf=0,S=R.style,MAX=7;
-function loop(){cx+=(tx-cx)*.12;cy+=(ty-cy)*.12;
- S.setProperty('--fx-fx',(cx*.5).toFixed(2)+'px');S.setProperty('--fx-fy',(cy*.5).toFixed(2)+'px');
- S.setProperty('--fx-bx',(-cx).toFixed(2)+'px');S.setProperty('--fx-by',(-cy*.6).toFixed(2)+'px');
- S.setProperty('--fx-ix',(cx).toFixed(2)+'px');S.setProperty('--fx-iy',(cy).toFixed(2)+'px');
- raf=Math.abs(tx-cx)+Math.abs(ty-cy)>.02?requestAnimationFrame(loop):0}
-function aim(x,y){tx=Math.max(-1,Math.min(1,x))*MAX;ty=Math.max(-1,Math.min(1,y))*MAX;R.classList.add('fx-px');raf||(raf=requestAnimationFrame(loop))}
-var gotTilt=0;
-w.addEventListener('deviceorientation',function(e){if(e.gamma==null)return;gotTilt=1;aim(e.gamma/30,(e.beta-45)/30)});
-if(matchMedia('(hover: hover) and (pointer: fine)').matches)
- w.addEventListener('mousemove',function(e){gotTilt||aim(e.clientX/innerWidth*2-1,e.clientY/innerHeight*2-1)},{passive:true});
 /* 3 tap-to-focus + 4 haptics */
 d.addEventListener('pointerdown',function(e){
  var t=e.target.closest&&e.target.closest('.button,.fbtn,.feature-media,a');if(!t)return;
