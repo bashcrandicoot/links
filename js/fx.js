@@ -14,13 +14,6 @@ if(!(ss&&ss.fxBoot)||/fxboot/.test(location.hash)){
  R.classList.add('fx-boot');
  setTimeout(function(){R.classList.remove('fx-boot');els.forEach(function(e){e.classList.remove('fx-up')})},1150);
 }
-/* 3 tap-to-focus + 4 haptics */
-d.addEventListener('pointerdown',function(e){
- var t=e.target.closest&&e.target.closest('.button,.fbtn,.feature-media,a');if(!t)return;
- var b=t.getBoundingClientRect(),f=d.createElement('div');f.className='fx-af';
- f.style.cssText='left:'+(b.left-3)+'px;top:'+(b.top-3)+'px;width:'+(b.width+6)+'px;height:'+(b.height+6)+'px';
- f.innerHTML='<i></i><i></i><i></i><i></i>';B.appendChild(f);setTimeout(function(){f.remove()},220);vib(8)},{passive:true});
-var tk=d.querySelector('.tk-track');tk&&tk.addEventListener('animationiteration',function(){vib(3)});
 /* 5 shake / 'bars' */
 var on=0,last=0,buf='';
 function bars(){if(on)return;on=1;vib([8,40,8]);var o=d.createElement('div'),c=function(a){return '<div>'+a.map(function(x){return '<span style="background:'+x+'"></span>'}).join('')+'</div>'};
