@@ -1,0 +1,33 @@
+/* bashframes fx: only active when js/fx.js adds classes. */
+.fx-px .frame{transform:translate3d(var(--fx-fx,0),var(--fx-fy,0),0)}
+.fx-px .barcode{transform:translate3d(var(--fx-bx,0),var(--fx-by,0),0)}
+.fx-px .feature-media{overflow:hidden}
+.fx-px .feature-media img{transform:translate3d(var(--fx-ix,0),var(--fx-iy,0),0) scale(1.04)}
+.fx-rec{display:inline-block;width:6px;height:6px;margin-right:.45rem;background:#FF2D2D;border-radius:50%;vertical-align:1px;animation:fx-blink 1s steps(1) infinite}
+@keyframes fx-blink{50%{opacity:0}}
+/* boot */
+.fx-boot .frame>.tick{animation:fx-snap .32s cubic-bezier(.2,.9,.2,1.2) both}
+.fx-boot .frame>.tick.tl{--fx-s:translate(-40px,-40px)}
+.fx-boot .frame>.tick.tr{--fx-s:translate(40px,-40px)}
+.fx-boot .frame>.tick.bl{--fx-s:translate(-40px,40px)}
+.fx-boot .frame>.tick.br{--fx-s:translate(40px,40px)}
+@keyframes fx-snap{from{transform:var(--fx-s);opacity:0}}
+.fx-boot .fx-up{animation:fx-up .36s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--fx-d,0ms)}
+@keyframes fx-up{from{opacity:0;transform:translateY(14px)}}
+/* focus box */
+.fx-af{position:fixed;z-index:50;pointer-events:none;animation:fx-af .18s ease-out forwards}
+.fx-af i{position:absolute;width:10px;height:10px;border:0 solid #C6FF00}
+.fx-af i:nth-child(1){top:0;left:0;border-width:2px 0 0 2px}
+.fx-af i:nth-child(2){top:0;right:0;border-width:2px 2px 0 0}
+.fx-af i:nth-child(3){bottom:0;left:0;border-width:0 0 2px 2px}
+.fx-af i:nth-child(4){bottom:0;right:0;border-width:0 2px 2px 0}
+@keyframes fx-af{from{transform:scale(1.25);opacity:0}30%{opacity:1}80%{transform:scale(1);opacity:1}to{transform:scale(1);opacity:0}}
+/* color bars */
+.fx-bars{position:fixed;inset:0;z-index:99;display:flex;flex-direction:column;pointer-events:none;animation:fx-gl 1.2s steps(1) forwards}
+.fx-bars div{display:flex;flex:7}
+.fx-bars div+div{flex:1}
+.fx-bars div+div+div{flex:2}
+.fx-bars span{flex:1}
+.fx-bars b{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:.4rem .7rem;background:#0A0A0A;color:#fff;font:500 .75rem/1 var(--bf-font-mono,monospace);letter-spacing:.14em;white-space:nowrap}
+@keyframes fx-gl{0%{transform:translateX(-12px) skewX(8deg);filter:hue-rotate(90deg)}6%{transform:translateX(9px)}12%{transform:none;filter:none}82%{transform:none;opacity:1}86%{transform:translateX(14px) scaleY(.9);filter:invert(1)}92%{transform:translateX(-6px);filter:none;opacity:.6}to{opacity:0}}
+@media (prefers-reduced-motion:reduce){.fx-boot *,.fx-rec,.fx-af,.fx-bars{animation:none!important}.fx-px *{transform:none!important}}
