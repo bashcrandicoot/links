@@ -26,11 +26,6 @@ var gotTilt=0;
 w.addEventListener('deviceorientation',function(e){if(e.gamma==null)return;gotTilt=1;aim(e.gamma/30,(e.beta-45)/30)});
 if(matchMedia('(hover: hover) and (pointer: fine)').matches)
  w.addEventListener('mousemove',function(e){gotTilt||aim(e.clientX/innerWidth*2-1,e.clientY/innerHeight*2-1)},{passive:true});
-/* iOS 13+ permission on first gesture */
-function perm(){d.removeEventListener('click',perm,true);
- [w.DeviceOrientationEvent,w.DeviceMotionEvent].forEach(function(E){
-  if(E&&typeof E.requestPermission=='function')try{E.requestPermission().catch(function(){})}catch(e){}})}
-d.addEventListener('click',perm,true);
 /* 3 tap-to-focus + 4 haptics */
 d.addEventListener('pointerdown',function(e){
  var t=e.target.closest&&e.target.closest('.button,.fbtn,.feature-media,a');if(!t)return;
