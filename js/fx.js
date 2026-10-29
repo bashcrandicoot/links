@@ -2,7 +2,7 @@
 (function(){
 var d=document,w=window,R=d.documentElement,B=d.body;
 if(!B||!w.matchMedia||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-var $=function(s){return d.querySelectorAll(s)},vib=function(n){try{navigator.vibrate&&navigator.vibrate(n)}catch(e){}};
+var $=function(s){return d.querySelectorAll(s)},vib=function(){};
 /* REC dot */
 var hb=d.querySelector('.hud b');if(hb){var r=d.createElement('i');r.className='fx-rec';hb.parentNode.insertBefore(r,hb)}
 /* 1 boot, once per session */
