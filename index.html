@@ -10,8 +10,8 @@
     <title>bashframes · links</title>
     <meta name="description" content="bashframes: Creative assets for all. Lodge, Ko-fi, YouTube, Instagram, TikTok, X and GitHub, all in one place.">
     <meta name="author" content="bashframes">
-    <!-- Planned URL; update if the page ends up somewhere else -->
-    <link rel="canonical" href="https://bashcrandicoot.github.io/links/">
+    <!-- Custom domain: bashframes.com (served at /) -->
+    <link rel="canonical" href="https://bashframes.com/">
     <meta name="theme-color" content="#0A0A0A">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -19,9 +19,16 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="bashframes">
     <meta property="og:description" content="Creative assets for all.">
-    <meta property="og:url" content="https://bashcrandicoot.github.io/links/">
-    <meta property="og:image" content="https://bashcrandicoot.github.io/links/images/avatar-512.png">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:url" content="https://bashframes.com/">
+    <meta property="og:image" content="https://bashframes.com/images/lodge-hero-social-preview.png">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta property="og:image:alt" content="Lodge: Home base for your media. A log cabin under a night sky.">
+    <meta property="og:site_name" content="bashframes">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="bashframes">
+    <meta name="twitter:description" content="Creative assets for all.">
+    <meta name="twitter:image" content="https://bashframes.com/images/lodge-hero-social-preview.png">
 
     <link rel="preload" href="fonts/SpaceGrotesk-Variable.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/JetBrainsMono-Variable.woff2" as="font" type="font/woff2" crossorigin>
@@ -29,19 +36,25 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bashframes.css">
   </head>
-  <body>
+  <body data-ticker="a">
     <header class="hud mono" aria-hidden="true">
-      <span><b>BF—LINKS</b> / bashframes</span>
+      <span><b>BF—LINKS</b> / <span class="brand-lc">bashframes</span></span>
       <span class="hud-mid">VIDEO / MUSIC / DESIGN · EST. 2026</span>
       <span>ATL 33.749°N 84.388°W</span>
     </header>
 
+
+    <!-- TICKER OPTIONS: <body data-ticker="a"> = scrolling marquee. Keep items factual. -->
+    <div class="ticker tk-a mono" role="region" aria-label="News">
+      <p class="sr-only">Lodge 1.0.3 out now. Free / open source. macOS 14+. Loadout in the works.</p>
+      <div class="tk-track" aria-hidden="true"><div class="tk-run"><span>Lodge 1.0.3 out now</span><span class="tk-dot">•</span><span>Free / open source</span><span class="tk-dot">•</span><span>macOS 14+</span><span class="tk-dot">•</span><span>Loadout in the works</span><span class="tk-dot">•</span></div><div class="tk-run"><span>Lodge 1.0.3 out now</span><span class="tk-dot">•</span><span>Free / open source</span><span class="tk-dot">•</span><span>macOS 14+</span><span class="tk-dot">•</span><span>Loadout in the works</span><span class="tk-dot">•</span></div></div>
+    </div>
     <div class="container">
       <div class="column">
         <main class="frame">
           <span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span>
           <span class="frame-label mono" aria-hidden="true">BF—00 / INDEX</span>
-          <span class="frame-label frame-label-r mono" aria-hidden="true">09 ITEMS</span>
+          <span class="frame-label frame-label-r mono" aria-hidden="true">08 ITEMS</span>
 
           <div class="profile">
             <div class="avatar-box">
@@ -54,26 +67,33 @@
             </div>
           </div>
 
-          <a class="hero" href="https://bashcrandicoot.github.io/Lodge/" target="_blank" rel="noopener" aria-label="Lodge: Home base for your media. Visit the Lodge site">
-            <span class="hero-bar mono" aria-hidden="true"><span>Featured / Lodge 1.0.3</span><span>Visit site ↗</span></span>
-            <img src="images/lodge-hero-social-preview.png" alt="Lodge: Home base for your media. A log cabin under a night sky." width="1280" height="640" loading="eager">
-          </a>
+          <!-- FEATURED APP CARD: to feature another app (e.g. Loadout), swap the data in this block + the image. Classes in css/bashframes.css under "Featured app card". -->
+          <article class="feature" aria-labelledby="feature-name">
+            <a class="feature-media" href="https://bashcrandicoot.github.io/Lodge/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <span class="feature-bar mono"><span>Featured</span><span>v1.0.3</span></span>
+              <!-- Card art: 16:9. Ship a 1200x675 (1x) and 2400x1350 (2x) jpg. -->
+              <img src="images/featured-lodge-1200.jpg" srcset="images/featured-lodge-1200.jpg 1200w, images/featured-lodge-2400.jpg 2400w" sizes="(max-width: 480px) 92vw, 440px" alt="Lodge for macOS: From card to calm. The Lodge app window offloading a camera card. Free, open source." width="1200" height="675" loading="eager">
+            </a>
+            <div class="feature-body">
+              <h2 class="feature-name" id="feature-name">Lodge <span class="feature-ver mono">1.0.3</span></h2>
+              <p class="feature-desc">Home base for your media.</p>
+              <div class="feature-actions">
+                <a class="fbtn fbtn-primary" href="https://ko-fi.com/s/fb9fab53be" target="_blank" rel="noopener">Download<span class="arrow" aria-hidden="true">↗</span></a>
+                <a class="fbtn" href="https://bashcrandicoot.github.io/Lodge/" target="_blank" rel="noopener">Visit site<span class="arrow" aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
 
           <section class="group" aria-labelledby="g-apps">
             <div class="group-head mono" id="g-apps">01 / Apps</div>
             <nav class="button-stack" aria-label="Apps">
-              <a class="button button-primary" href="https://ko-fi.com/s/fb9fab53be" target="_blank" rel="noopener">
-                <span class="idx mono">01</span><span class="icon icon-download" aria-hidden="true"></span>
-                <span>Download Lodge</span>
-                <span class="meta mono">Ko-fi<span class="arrow" aria-hidden="true">↗</span></span>
-              </a>
-              <a class="button" href="https://bashcrandicoot.github.io/Lodge/" target="_blank" rel="noopener">
-                <span class="idx mono">02</span><span class="icon icon-home" aria-hidden="true"></span>
-                <span>Lodge site</span>
-                <span class="meta mono"><span class="hide-sm">github.io/Lodge</span><span class="arrow" aria-hidden="true">↗</span></span>
+              <a class="button" href="https://bashcrandicoot.github.io/apps/" target="_blank" rel="noopener">
+                <span class="idx mono">01</span><span class="icon icon-soon" aria-hidden="true"></span>
+                <span>All apps</span>
+                <span class="meta mono"><span class="hide-sm">Lodge, Loadout</span><span class="arrow" aria-hidden="true">→</span></span>
               </a>
               <div class="button button-soon" aria-disabled="true">
-                <span class="idx mono">03</span><span class="icon icon-soon" aria-hidden="true"></span>
+                <span class="idx mono">02</span><span class="icon icon-soon" aria-hidden="true"></span>
                 <span>Loadout</span>
                 <span class="tag mono">Coming soon</span>
               </div>
@@ -84,7 +104,7 @@
             <div class="group-head mono" id="g-support">02 / Support</div>
             <nav class="button-stack" aria-label="Support">
               <a class="button" href="https://ko-fi.com/bashframes" target="_blank" rel="noopener">
-                <span class="idx mono">04</span><img class="icon" src="images/icons/ko-fi-mono.svg" alt="" aria-hidden="true" width="18" height="18">
+                <span class="idx mono">03</span><img class="icon" src="images/icons/ko-fi-mono.svg" alt="" aria-hidden="true" width="18" height="18">
                 <span>Support on Ko-fi</span>
                 <span class="meta mono"><span class="hide-sm">ko-fi.com</span><span class="arrow" aria-hidden="true">↗</span></span>
               </a>
@@ -95,42 +115,52 @@
             <div class="group-head mono" id="g-elsewhere">03 / Elsewhere</div>
             <nav class="button-stack" aria-label="Social">
               <a class="button" href="https://x.com/goodnaitsabes" target="_blank" rel="noopener">
-                <span class="idx mono">05</span><span class="icon icon-x" aria-hidden="true"></span>
+                <span class="idx mono">04</span><span class="icon icon-x" aria-hidden="true"></span>
                 <span>X</span>
                 <span class="meta mono"><span class="hide-sm">@goodnaitsabes</span><span class="arrow" aria-hidden="true">↗</span></span>
               </a>
               <a class="button" href="https://github.com/bashcrandicoot" target="_blank" rel="noopener">
-                <span class="idx mono">06</span><span class="icon icon-github" aria-hidden="true"></span>
+                <span class="idx mono">05</span><span class="icon icon-github" aria-hidden="true"></span>
                 <span>GitHub</span>
                 <span class="meta mono"><span class="hide-sm">bashcrandicoot</span><span class="arrow" aria-hidden="true">↗</span></span>
               </a>
               <a class="button" href="https://www.youtube.com/@bashframes" target="_blank" rel="noopener">
-                <span class="idx mono">07</span><span class="icon icon-youtube" aria-hidden="true"></span>
+                <span class="idx mono">06</span><span class="icon icon-youtube" aria-hidden="true"></span>
                 <span>YouTube</span>
                 <span class="meta mono"><span class="hide-sm">@bashframes</span><span class="arrow" aria-hidden="true">↗</span></span>
               </a>
               <!-- Instagram: handle changes to bashframes on Nov 9, 2026. Update the href and the handle text below (2 spots). -->
               <a class="button" href="https://www.instagram.com/pkt.guru/" target="_blank" rel="noopener">
-                <span class="idx mono">08</span><span class="icon icon-instagram" aria-hidden="true"></span>
+                <span class="idx mono">07</span><span class="icon icon-instagram" aria-hidden="true"></span>
                 <span>Instagram</span>
                 <span class="meta mono"><span class="hide-sm">@pkt.guru</span><span class="arrow" aria-hidden="true">↗</span></span>
               </a>
               <a class="button" href="https://www.tiktok.com/@bash.crandicoot" target="_blank" rel="noopener">
-                <span class="idx mono">09</span><span class="icon icon-tiktok" aria-hidden="true"></span>
+                <span class="idx mono">08</span><span class="icon icon-tiktok" aria-hidden="true"></span>
                 <span>TikTok</span>
                 <span class="meta mono"><span class="hide-sm">@bash.crandicoot</span><span class="arrow" aria-hidden="true">↗</span></span>
               </a>
             </nav>
           </section>
+          <!-- ABOUT: placeholder copy, to be confirmed -->
+          <section class="group about" aria-labelledby="g-about">
+            <div class="group-head mono" id="g-about">04 / About</div>
+            <div class="about-card">
+              <div class="about-photo">
+                <img src="images/bashframes-avatar-256.jpg" srcset="images/bashframes-avatar-256.jpg 1x, images/bashframes-avatar-512.jpg 2x" alt="Sebastian, the person behind bashframes" width="256" height="256" loading="lazy">
+              </div>
+              <p class="about-text">Sebastian, the person behind <span class="brand-lc">bashframes</span>. I make tools for creatives.</p>
+            </div>
+          </section>
         </main>
 
         <footer>
           <div class="foot-row">
-            <img class="wordmark" src="images/bashframes-logo-wordmark-one-line-white.svg" alt="bashframes" width="160" height="14">
+            <span class="wordmark-text">bashframes</span>
             <img class="barcode" src="images/bashframes-element-barcode-white.svg" alt="" aria-hidden="true">
           </div>
           <div class="foot-row mono">
-            <span>© 2026 bashframes · No tracking</span>
+            <span>© 2026 <span class="brand-lc">bashframes</span> · No tracking</span>
             <span>Built on <a href="https://littlelink.io" target="_blank" rel="noopener">LittleLink</a></span>
           </div>
         </footer>
