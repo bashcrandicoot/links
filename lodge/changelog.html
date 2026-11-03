@@ -375,8 +375,10 @@
       .wrap { padding-inline: var(--space-4); }
       .card { padding: var(--space-4); }
       .nav-inner { flex-wrap: nowrap; min-height: 56px; }
-      .nav-links { flex-wrap: nowrap; }
-      .nav-links a:not(.download):not(.guide) { display: none; }
+      .nav-links { flex-wrap: nowrap; gap: var(--space-2) var(--space-3); }
+      .nav-links a { white-space: nowrap; }
+      .nav-links .download { padding-inline: var(--space-3); }
+      .nav-links a:not(.download):not(.guide):not(.apps) { display: none; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -394,11 +396,11 @@
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="index.html#features">Features</a>
-        <a href="index.html#verified">Verified</a>
         <a href="index.html#install">Install</a>
         <a class="guide" href="user-guide.html">User guide</a>
         <a href="changelog.html" aria-current="page">Changelog</a>
-        <a class="download" href="https://dl.bashfra.me/lodge/Lodge-1.0.dmg" data-goatcounter-click="trial-download">Try for Free</a>
+        <a class="apps" href="https://bashfra.me/apps/">All apps</a>
+        <a class="download" href="https://dl.bashfra.me/lodge/Lodge-1.0.dmg" data-goatcounter-click="lodge-dmg-download" data-goatcounter-title="Lodge DMG download">Try for Free</a>
       </nav>
     </div>
   </header>
@@ -409,7 +411,7 @@
         <h1>Changelog</h1>
         <p class="lede">Everything Lodge does, in one release.</p>
         <div class="actions">
-          <a class="trial" href="https://dl.bashfra.me/lodge/Lodge-1.0.dmg" data-goatcounter-click="trial-download"><span>Try for Free</span><small>for Mac</small></a>
+          <a class="trial" href="https://dl.bashfra.me/lodge/Lodge-1.0.dmg" data-goatcounter-click="lodge-dmg-download" data-goatcounter-title="Lodge DMG download"><span>Try for Free</span><small>for Mac</small></a>
         </div>
         <p class="pay">3-day trial, then $10 once.</p>
         <p class="badges">
@@ -473,6 +475,7 @@
       <nav aria-label="Footer">
         <a class="guide" href="user-guide.html">User guide</a>
         <a href="changelog.html" aria-current="page">Changelog</a>
+        <a href="https://bashfra.me/apps/">All apps</a>
         <a href="mailto:bashframes@gmail.com">bashframes@gmail.com</a>
         <a class="support" href="https://ko-fi.com/bashframes">Support Lodge</a>
       </nav>
