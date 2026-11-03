@@ -1,0 +1,43 @@
+name: Sync Lodge site
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Copy Lodge docs into lodge/
+        env:
+          LODGE_READ_TOKEN: ${{ secrets.LODGE_READ_TOKEN }}
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/Lodge lodge
+          mkdir -p lodge
+          if [ -n "${LODGE_READ_TOKEN:-}" ]; then
+            git clone --depth 1 --branch main "https://x-access-token:${LODGE_READ_TOKEN}@github.com/bashcrandicoot/Lodge.git" /tmp/Lodge
+          else
+            git clone --depth 1 --branch main https://github.com/bashcrandicoot/Lodge.git /tmp/Lodge
+          fi
+          cp -a /tmp/Lodge/docs/. lodge/
+          python3 scripts/rewrite-lodge-urls.py
+
+      - name: Commit if the copy changed
+        run: |
+          set -euo pipefail
+          git add lodge
+          if git diff --cached --quiet; then
+            echo "Lodge copy is unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Sync Lodge site from upstream docs"
+          git push
