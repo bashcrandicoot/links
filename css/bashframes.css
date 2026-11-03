@@ -105,8 +105,8 @@ body,
 .avatar.avatar--none{width:2.75rem;height:auto;margin:0;object-fit:contain}
 
 .profile-text{min-width:0}
-.profile-text .handle{color:var(--bf-steel);display:inline-block;margin-bottom:.35rem;text-decoration:none;border-bottom:1px solid transparent}
-.profile-text a.handle:hover,:root.theme-dark .profile-text a.handle:not(.button):hover{color:var(--bf-white);border-bottom-color:var(--bf-white)}
+.profile-text .handle{color:var(--bf-steel);display:inline;margin:0 0 .35rem;padding:0;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:.2em;text-decoration-thickness:1px;border-bottom:0;transform:none;transition:color .12s ease,opacity .12s ease,text-decoration-color .12s ease}
+.profile-text a.handle:hover,:root.theme-dark .profile-text a.handle:not(.button):hover{color:var(--bf-white);opacity:.8;text-decoration-color:currentColor;transform:none;box-shadow:none;filter:none}
 :root.theme-dark .profile-text a.handle:not(.button){color:var(--bf-steel)}
 
 /* ---------- Featured hero ---------- */
@@ -235,12 +235,14 @@ footer a:hover,:root.theme-dark footer a:not(.button):hover{color:var(--bf-white
 .feature-bar{display:flex;justify-content:space-between;padding:.5rem .75rem;border-bottom:1px solid rgba(255,255,255,.22);color:var(--bf-fog);font-size:.625rem}
 .feature-media img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;filter:saturate(.85);transition:filter .12s ease}
 .feature-media:hover img{filter:none}
+.yt-hero{position:relative;width:100%;aspect-ratio:16/9;border:0;border-radius:0}
+.yt-hero iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:0}
 .feature-body{padding:1rem .875rem .875rem;border-top:1px solid rgba(255,255,255,.22)}
 .feature-name{margin:0;font-size:1.5rem;font-weight:700;letter-spacing:-.03em;line-height:1.1}
 .feature-ver{color:var(--bf-steel);margin-left:.35rem;vertical-align:middle}
 .feature-desc{margin:.3rem 0 .875rem;color:var(--bf-fog);font-size:.9375rem;line-height:1.4}
 .lodge-accent{color:#FAA43E}
-.feature-desc + .feature-sub{margin:-.5rem 0 .875rem;color:var(--bf-steel);font-size:.8125rem;font-weight:400;line-height:1.35}
+.feature-sub{margin:.3rem 0 .875rem;color:var(--bf-steel);font-size:.8125rem;font-weight:400;line-height:1.35}
 .feature-actions{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
 .fbtn,:root.theme-dark .fbtn{display:flex;align-items:center;justify-content:center;min-height:3rem;padding:.625rem .75rem;border:1px solid rgba(255,255,255,.35);color:var(--bf-white);text-decoration:none;font-weight:600;font-size:1rem;transition:background-color .12s,border-color .12s,color .12s}
 .fbtn .arrow{margin-left:.4rem;color:inherit;opacity:.7}
@@ -274,7 +276,7 @@ body[data-ticker="a"] .tk-a{display:block}
 .wordmark-text{font-family:var(--bf-font-sans);font-weight:700;font-size:1.125rem;letter-spacing:-.03em;color:var(--bf-white);text-transform:lowercase;line-height:1}
 
 /* ---------- Tap targets (min 44px) ---------- */
-.profile-text a.handle{display:inline-flex;align-items:center;min-height:44px;padding:0 .5rem;margin:-.75rem 0 -.5rem -.5rem}
+.profile-text a.handle{display:inline;min-height:0;padding:0;margin:0 0 .35rem}
 footer a,:root.theme-dark footer a:not(.button){display:inline-flex;align-items:center;min-height:44px;padding:0 .25rem;border-bottom:0;text-decoration:underline;text-decoration-color:var(--bf-graphite);text-underline-offset:3px}
 footer a:hover{text-decoration-color:var(--bf-white)}
 .brand-lc{text-transform:none;letter-spacing:.06em}
