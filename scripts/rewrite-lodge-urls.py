@@ -20,9 +20,14 @@ def page_url(path: Path) -> str:
     return f"{BASE}/{rel}"
 
 
+DMG = "https://dl.bashfra.me/lodge/Lodge-1.0.dmg"
+
+
 def rewrite_text(text: str) -> str:
     text = text.replace("https://bashcrandicoot.github.io/Lodge/", BASE + "/")
     text = text.replace("https://bashcrandicoot.github.io/Lodge", BASE)
+    text = text.replace("https://bashfra.me/lodge-dmg/", DMG)
+    text = text.replace("https://bashfra.me/lodge-dmg", DMG)
     text = NOINDEX.sub("\n", text)
     return text
 
