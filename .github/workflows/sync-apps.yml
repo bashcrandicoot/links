@@ -1,0 +1,43 @@
+name: Sync apps site
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Copy the apps site into apps/
+        env:
+          APPS_READ_TOKEN: ${{ secrets.APPS_READ_TOKEN }}
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/apps-repo apps
+          mkdir -p apps
+          if [ -n "${APPS_READ_TOKEN:-}" ]; then
+            git clone --depth 1 --branch main "https://x-access-token:${APPS_READ_TOKEN}@github.com/bashcrandicoot/apps.git" /tmp/apps-repo
+          else
+            git clone --depth 1 --branch main https://github.com/bashcrandicoot/apps.git /tmp/apps-repo
+          fi
+          cp -a /tmp/apps-repo/index.html /tmp/apps-repo/assets apps/
+          python3 scripts/rewrite-apps-urls.py
+
+      - name: Commit if the copy changed
+        run: |
+          set -euo pipefail
+          git add apps
+          if git diff --cached --quiet; then
+            echo "Apps copy is unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Sync apps site from upstream"
+          git push
