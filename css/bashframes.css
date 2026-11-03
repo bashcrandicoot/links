@@ -239,6 +239,7 @@ footer a:hover,:root.theme-dark footer a:not(.button):hover{color:var(--bf-white
 .feature-name{margin:0;font-size:1.5rem;font-weight:700;letter-spacing:-.03em;line-height:1.1}
 .feature-ver{color:var(--bf-steel);margin-left:.35rem;vertical-align:middle}
 .feature-desc{margin:.3rem 0 .875rem;color:var(--bf-fog);font-size:.9375rem;line-height:1.4}
+.lodge-accent{color:#b7c6ff}
 .feature-desc + .feature-sub{margin:-.5rem 0 .875rem;color:var(--bf-steel);font-size:.8125rem;font-weight:400;line-height:1.35}
 .feature-actions{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
 .fbtn,:root.theme-dark .fbtn{display:flex;align-items:center;justify-content:center;min-height:3rem;padding:.625rem .75rem;border:1px solid rgba(255,255,255,.35);color:var(--bf-white);text-decoration:none;font-weight:600;font-size:1rem;transition:background-color .12s,border-color .12s,color .12s}
