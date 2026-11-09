@@ -13,5 +13,5 @@ Deploy (not done yet): put these files at the root of a repo named `links`, then
 
 ## Notes
 - Hero: the featured card uses `images/featured-lodge-1200.jpg` / `-2400.jpg` (Brandy's card). Short paths `/apps/` and `/lodge/` are redirect pages to the GitHub Pages sites.
-- Instagram: the handle changes to bashframes on Nov 9, 2026. In `index.html`, search for "pkt.guru" and update the href and the visible handle (2 spots).
+- Instagram: [@bash.frames](https://www.instagram.com/bash.frames/).
 - The header handle @bashframes links to https://www.youtube.com/@bashframes.
