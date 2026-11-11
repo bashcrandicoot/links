@@ -553,6 +553,7 @@
     .app .pay { margin: auto 0 var(--space-3); }
     .app .actions { justify-content: flex-start; margin: auto 0 0; }
     .app .pay + .actions { margin-top: 0; }
+    .app .tag + .actions { margin-top: var(--space-3); }
     .soon-media { display: grid; place-items: center; color: var(--muted); font-family: var(--mono); letter-spacing: .3em; text-transform: uppercase; font-size: 22px;
       background: repeating-linear-gradient(135deg, transparent 0 12px, rgba(230,220,255,.04) 12px 13px), #15122a; }
     .app-media.soon-media img { width: 72px; height: 72px; object-fit: contain; }
@@ -574,6 +575,7 @@
       <nav class="nav-links" aria-label="Primary">
         <a href="#lodge">Lodge</a>
         <a href="#loadout">Loadout</a>
+        <a href="#pilotlight">PilotLight</a>
         <a class="download" href="https://dl.bashfra.me/lodge/Lodge-1.0.dmg" data-goatcounter-click="lodge-dmg-download" data-goatcounter-title="Lodge DMG download">Download Lodge</a>
       </nav>
     </div>
@@ -621,6 +623,27 @@
               <h2 id="crate-title">Crate</h2>
               <p>An asset manager for your footage and asset packs.</p>
               <span class="tag">Coming soon</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Free apps: View on GitHub button only, no Download button. -->
+    <section id="free-apps" aria-labelledby="free-apps-title">
+      <div class="wrap">
+        <h2 id="free-apps-title">Free apps</h2>
+        <div class="apps">
+          <article class="card app" id="pilotlight" aria-labelledby="pilotlight-title">
+            <div class="app-media" aria-hidden="true"><img src="assets/pilotlight-hero-dark-1600x500.webp" width="1600" height="500" alt=""></div>
+            <div class="app-body">
+              <h2 id="pilotlight-title">PilotLight</h2>
+              <p class="tagline">See when your Mac is busy with a bot.</p>
+              <p>A free, open-source macOS menu-bar app that shows a soft glow around your screen while an agent is using your Mac.</p>
+              <span class="tag">Free and open source</span>
+              <div class="actions">
+                <a class="button" href="https://github.com/bashcrandicoot/PilotLight" data-goatcounter-click="pilotlight-github">View on GitHub</a>
+              </div>
             </div>
           </article>
         </div>
