@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loadout – Coming soon</title>
+  <meta name="description" content="Easy asset management for Resolve.">
+  <meta name="author" content="bashframes">
+  <meta name="theme-color" content="#100e18">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://bashfra.me/loadout/">
+  <link rel="icon" href="assets/loadout-case.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="bashframes">
+  <meta property="og:url" content="https://bashfra.me/loadout/">
+  <meta property="og:title" content="Loadout – Coming soon">
+  <meta property="og:description" content="Easy asset management for Resolve.">
+  <meta property="og:image" content="https://bashfra.me/loadout/assets/loadout-hero-dark-1600x500-clean.png">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="500">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Loadout – Coming soon">
+  <meta name="twitter:description" content="Easy asset management for Resolve.">
+  <meta name="twitter:image" content="https://bashfra.me/loadout/assets/loadout-hero-dark-1600x500-clean.png">
+  <style>
+    :root {
+      --bg: #100e18;
+      --ink: #ffffff;
+      --muted: #b7b1c9;
+      --accent: #b7c6ff;
+      --button: #3d4fce;
+      --button-hover: #4d5ed6;
+      --card: #1b1830;
+      --line: rgba(230, 220, 255, 0.12);
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif;
+      --max: 720px;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 24px;
+      --space-6: 32px;
+      --space-7: 48px;
+      --space-8: 64px;
+      --h1: clamp(40px, 6vw, 56px);
+      --body: 17px;
+      --small: 15px;
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font);
+      font-size: var(--body);
+      line-height: 1.5;
+      text-rendering: optimizeLegibility;
+    }
+    img { max-width: 100%; height: auto; }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+    a:hover { color: #d7e0ff; }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    h1, p { overflow-wrap: break-word; }
+
+    .skip {
+      position: absolute;
+      left: var(--space-4);
+      top: -48px;
+      background: var(--button);
+      color: #fff;
+      padding: var(--space-2) var(--space-3);
+      border-radius: 8px;
+      z-index: 5;
+    }
+    .skip:focus { top: var(--space-3); }
+
+    .wrap {
+      width: min(var(--max), 100%);
+      margin-inline: auto;
+      padding-inline: var(--space-5);
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 4;
+      background: rgba(16, 14, 24, 0.86);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: saturate(140%) blur(16px);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      min-height: 64px;
+      padding-block: var(--space-3);
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      color: var(--ink);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+    .brand img.mark { width: 22px; height: 27px; max-width: none; }
+
+    main { padding-block: var(--space-7) var(--space-8); }
+    .app {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+    }
+    .app-media {
+      display: block;
+      aspect-ratio: 16 / 5;
+      background: #15122a;
+      border-bottom: 1px solid var(--line);
+    }
+    .app-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .app-body { display: flex; flex-direction: column; align-items: flex-start; padding: var(--space-5); }
+    .case {
+      display: block;
+      width: 48px;
+      height: 48px;
+      margin: 0 0 var(--space-4);
+    }
+    h1 {
+      margin: 0;
+      font-size: var(--h1);
+      font-weight: 650;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+    .app p { margin: var(--space-2) 0 var(--space-5); color: var(--muted); }
+    .tag {
+      display: inline-block;
+      align-self: flex-start;
+      margin: 0 0 var(--space-5);
+      padding: var(--space-1) var(--space-3);
+      border: 1px dashed var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: var(--small);
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--button);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      line-height: 1.2;
+      border-radius: 12px;
+      padding: var(--space-3) var(--space-4);
+      border: 1px solid transparent;
+      min-height: 48px;
+    }
+    .button:hover { background: var(--button-hover); color: #fff; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding-block: var(--space-6) var(--space-8);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    footer .wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3) var(--space-5);
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer p { margin: 0; }
+    footer .wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      color: var(--ink);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+    footer .wordmark img { width: 22px; height: 27px; max-width: none; }
+    footer a.support {
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 980px;
+      padding: var(--space-1) var(--space-3);
+      text-decoration: none;
+    }
+    footer a.support:hover { color: var(--accent); border-color: var(--accent); }
+
+    @media (max-width: 480px) {
+      .wrap { padding-inline: var(--space-4); }
+      main { padding-block: var(--space-6); }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="https://bashfra.me/" data-goatcounter-click="bashfra">
+        <img class="mark" src="assets/bashframes-logo-mark-white.svg" width="22" height="27" alt="">
+        bashframes
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <article class="app" aria-labelledby="loadout-title">
+        <div class="app-media" aria-hidden="true">
+          <img src="assets/loadout-hero-dark-1600x500-clean.png" width="1600" height="500" alt="">
+        </div>
+        <div class="app-body">
+          <img class="case" src="assets/loadout-case.svg" width="48" height="48" alt="">
+          <h1 id="loadout-title">Loadout</h1>
+          <p>Easy asset management for Resolve.</p>
+          <span class="tag">Coming soon</span>
+          <a class="button" href="https://bashfra.me/apps/#loadout" data-goatcounter-click="see-all-apps">See all apps</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <a class="wordmark" href="https://bashfra.me/" data-goatcounter-click="footer-links">
+        <img src="assets/bashframes-logo-mark-white.svg" width="22" height="27" alt="">
+        bashframes
+      </a>
+      <a class="support" href="https://ko-fi.com/bashframes" data-goatcounter-click="kofi">Support bashframes</a>
+    </div>
+  </footer>
+<script data-goatcounter="https://bashframes.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
